@@ -21,6 +21,8 @@ Lancer le projet sur mobile Android :
 - Lancer Visual Studio + un terminal dans Visual Studio
   taper la commande <FONT color="red">"npx react-native run-android"</FONT>
 
+  Tout ce qui sera compris entre <FONT color="red"> et </FONT> aura la couleur rouge.
+
 ## Problème connu + résolution
 
 <p> error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup. Run CLI with --verbose flag for more details.
