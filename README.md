@@ -10,9 +10,6 @@
 ## How to Install
 
 <h4> Lancer le projet sur mobile Android : </h4>
-=======
-<h2> Lancer le projet sur mobile Android : </h2>
->>>>>>> 9682500038dbb52a4baacdac7045338dd156a97c
 
 - Ouvrir un terminal et aller dans le répertoire projet
   exemple : cd Desktop/WaveAuth
