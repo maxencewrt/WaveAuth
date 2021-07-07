@@ -9,7 +9,7 @@
 
 ## How to Install
 
-Lancer le projet sur mobile Android :
+<h2> Lancer le projet sur mobile Android : </h2>
 
 - Ouvrir un terminal et aller dans le répertoire projet
   exemple : cd Desktop/WaveAuth
