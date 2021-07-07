@@ -21,6 +21,11 @@
 - Lancer Visual Studio + un terminal dans Visual Studio
   taper la commande <strong>"npx react-native run-android"</strong>
 
+<h4> Lancer le projet sur mobile iPhone : </h4>
+(seulement possible sur MAC via Xcode)
+
+<a href="https://reactnative.dev/docs/running-on-device">Tuto dispo ici</a>
+
 ## Problème connu + résolution
 
 ## To do list
