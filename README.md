@@ -9,7 +9,11 @@
 
 ## How to Install
 
+<<<<<<< Updated upstream
 Lancer le projet sur mobile Android :
+=======
+<h4> Lancer le projet sur mobile Android : </h4>
+>>>>>>> Stashed changes
 
 - Ouvrir un terminal et aller dans le répertoire projet
   exemple : cd Desktop/WaveAuth
