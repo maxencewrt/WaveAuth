@@ -31,6 +31,9 @@
 ## To do list
 
 - Ajouter la base de données Firestore
+- Corriger le warning : []
+- Mettre une vérification de la connexion internet au lancement de l'application
+- Mettre à jour l'icon NFC (au moment du start authentication)
 - Mettre à jour l'appli pour une utilisation iOS
   - Installation des pods pour le NFC
   - Mise à jour des Logo, de la version et du nom de l'application
