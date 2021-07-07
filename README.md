@@ -13,13 +13,13 @@ Lancer le projet sur mobile Android :
 
 - Ouvrir un terminal et aller dans le répertoire projet
   exemple : cd Desktop/WaveAuth
-  utiliser la commande "npm start" pour lancer le serveur React
+  utiliser la commande <FONT color="red">"npm start"</FONT> pour lancer le serveur React
 
 - Connecter son téléphone en ayant activé le mode développer
-  Vérifier que le téléphone aparait en tapant la commande "adb devices" dans un nouveau terminal
+  Vérifier que le téléphone aparait en tapant la commande <FONT color="red">"adb devices"</FONT> dans un nouveau terminal
 
 - Lancer Visual Studio + un terminal dans Visual Studio
-  taper la commande "npx react-native run-android"
+  taper la commande <FONT color="red">"npx react-native run-android"</FONT>
 
 ## Problème connu + résolution
 
