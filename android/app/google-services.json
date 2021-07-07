@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "784655101307",
+    "firebase_url": "https://fir-testv1-cbadf-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fir-testv1-cbadf",
+    "storage_bucket": "fir-testv1-cbadf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784655101307:android:af481e9c2c64ac4366e1de",
+        "android_client_info": {
+          "package_name": "com.revteltech.nfcopenrewriter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUlQc9Owkz2VFSIDUj7acaKExXNRN7g1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

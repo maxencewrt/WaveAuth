@@ -2,58 +2,32 @@
   <img alt="react-native-nfc-rewriter" src="./images/nfc-rewriter-icon.png" width="300">
 </p>
 <p align="center">
-  <h2 align="center">NFC Open ReWriter</h2>
+  <h2 align="center">WaveAuth application</h2>
 </p>
 
 ---
 
-<br/>
-<p align="center">
-  <a href='https://apps.apple.com/tw/app/nfc-rewriter/id1551243964' target='_blank'>
-  <img alt="react-native-nfc-rewriter" src="./images/Apple-App-Store-Icon.png" width="250">
-  </a>
-</p>
-<br/>
+## How to Install
 
-<p align="center">
-  This open source React Native NFC app allows read & write to NFC tags
-</p>
+Lancer le projet sur mobile Android :
 
-<table align="center">
-<tr>
-  <td>
-      <img alt="read" src="./images/nfc-app-read.gif" width="200">
-      <h3 align="center">Read</h3>
-  </td>
-  <td>
-      <img alt="write" src="./images/nfc-app-write.gif" width="200">
-      <h3 align="center">Write</h3>
-  </td>
-</tr>
-</table>
+- Ouvrir un terminal et aller dans le répertoire projet
+  exemple : cd Desktop/WaveAuth
+  utiliser la commande "npm start" pour lancer le serveur React
 
-<p align="center">
-  And much more! 
+- Connecter son téléphone en ayant activé le mode développer
+  Vérifier que le téléphone aparait en tapant la commande "adb devices" dans un nouveau terminal
+
+- Lancer Visual Studio + un terminal dans Visual Studio
+  taper la commande "npx react-native run-android"
+
+## Problème connu + résolution
+
+<p> error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup. Run CLI with --verbose flag for more details.
+Error: Command failed: gradlew.bat app:installDebug -PreactNativeDevServerPort=8081
 </p>
 
-<table align="center">
-<tr>
-  <td>
-      <img alt="trans" src="./images/nfc-app-trans.gif" width="200">
-      <h3 align="center">Custom commands</h3>
-  </td>
-  <td>
-      <img alt="mine" src="./images/nfc-app-mine.gif" width="200">
-      <h3 align="center">Save Your Own Records</h3>
-  </td>
-</tr>
-</table>
-
-<p align="center">
-The NFC library is powered by <a href="https://github.com/facebook/react-native">react-native</a> as well as <a href="https://github.com/whitedogg13/react-native-nfc-manager">react-native-nfc-manager</a>
-</p>
-
-## Features
+## To do list
 
 - Read NFC tags
   - uid
@@ -72,18 +46,3 @@ The NFC library is powered by <a href="https://github.com/facebook/react-native"
   - IsoDep
     - Custom APDU (mostly Android)
 - Save your own records
-
-## Made by
-
-<table>
-<tr>
-  <td>
-      <img alt="revtel" src="./images/revicon_512.png" width="72">
-      <h3 align="center">Revteltech</h3>
-  </td>
-  <td>
-      <img alt="washow" src="./images/washow_icon.png" width="72">
-      <h3 align="center">Washow</h3>
-  </td>
-</tr>
-</table>
