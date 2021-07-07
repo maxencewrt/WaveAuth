@@ -19,9 +19,9 @@ Lancer le projet sur mobile Android :
   Vérifier que le téléphone aparait en tapant la commande <FONT color="red">"adb devices"</FONT> dans un nouveau terminal
 
 - Lancer Visual Studio + un terminal dans Visual Studio
-  taper la commande <FONT color="red">"npx react-native run-android"</FONT>
+  taper la commande <font color="red">"npx react-native run-android"</font>
 
-  Tout ce qui sera compris entre <FONT color="red"> et </FONT> aura la couleur rouge.
+  <strong>texte en gras ici</strong>.
 
 ## Problème connu + résolution
 
