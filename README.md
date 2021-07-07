@@ -13,38 +13,20 @@ Lancer le projet sur mobile Android :
 
 - Ouvrir un terminal et aller dans le répertoire projet
   exemple : cd Desktop/WaveAuth
-  utiliser la commande <FONT color="red">"npm start"</FONT> pour lancer le serveur React
+  utiliser la commande <strong>"npm start"</strong> pour lancer le serveur React
 
 - Connecter son téléphone en ayant activé le mode développer
-  Vérifier que le téléphone aparait en tapant la commande <FONT color="red">"adb devices"</FONT> dans un nouveau terminal
+  Vérifier que le téléphone aparait en tapant la commande <strong>"adb devices"</strong> dans un nouveau terminal
 
 - Lancer Visual Studio + un terminal dans Visual Studio
-  taper la commande <font color="red">"npx react-native run-android"</font>
-
-  <strong>texte en gras ici</strong>.
+  taper la commande <strong>"npx react-native run-android"</strong>
 
 ## Problème connu + résolution
 
-<p> error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup. Run CLI with --verbose flag for more details.
-Error: Command failed: gradlew.bat app:installDebug -PreactNativeDevServerPort=8081
-</p>
-
 ## To do list
 
-- Read NFC tags
-  - uid
-  - NFC technology
-  - NDEF
-- Write NDEF
-  - RTD_URI
-    - url, email, sms, tel, or custom scheme
-  - RTD_TEXT
-  - WIFI SIMPLE RECORD
-- Toolkits
-  - NfcA
-    - Custom transceive
-    - Erase all
-    - Format to NDEF
-  - IsoDep
-    - Custom APDU (mostly Android)
-- Save your own records
+- Ajouter la base de données Firestore
+- Mettre à jour l'appli pour une utilisation iOS
+  - Installation des pods pour le NFC
+  - Mise à jour des Logo, de la version et du nom de l'application
+  - Ajout de la base de données firestore
