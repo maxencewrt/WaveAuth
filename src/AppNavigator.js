@@ -5,7 +5,6 @@ import {Appbar} from 'react-native-paper';
 import LandingScreen from './Screens/Landing';
 import HomeScreen from './Screens/Home';
 import TagDetailScreen from './Screens/TagDetail';
-import FirestoreScreen from './Screens/Firestore/firestore';
 //import NdefTypeListScreen from './Screens/NdefTypeList';
 // import NdefWriteScreen from './Screens/NdefWrite';
 import CustomTransceiveScreen from './Screens/CustomTransceive';
@@ -54,11 +53,6 @@ function Main(props) {
         name="CustomTransceive"
         component={CustomTransceiveScreen}
         options={{title: 'CUSTOM TRANSCEIVE'}}
-      />
-      <MainStack.Screen
-        name="Firestore"
-        options={{title: 'Firestore Screen'}}
-        component={FirestoreScreen}
       />
     </MainStack.Navigator>
   );
