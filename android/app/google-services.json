@@ -1,22 +1,32 @@
 {
   "project_info": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "project_number": "747209931989",
     "firebase_url": "https://waveauth-project-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "waveauth-project",
     "storage_bucket": "waveauth-project.appspot.com"
 =======
+=======
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
     "project_number": "784655101307",
     "firebase_url": "https://fir-testv1-cbadf-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "fir-testv1-cbadf",
     "storage_bucket": "fir-testv1-cbadf.appspot.com"
+<<<<<<< HEAD
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
+=======
 >>>>>>> parent of 5a16241 (Adding Firestore test page)
   },
   "client": [
     {
       "client_info": {
 <<<<<<< HEAD
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:747209931989:android:72a976c710d5777e4c365c",
+=======
+        "mobilesdk_app_id": "1:784655101307:android:af481e9c2c64ac4366e1de",
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
 =======
         "mobilesdk_app_id": "1:784655101307:android:af481e9c2c64ac4366e1de",
 >>>>>>> parent of 5a16241 (Adding Firestore test page)
@@ -27,7 +37,11 @@
       "oauth_client": [
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "client_id": "747209931989-0f7bgm52obd1n11qkq3pf1li5jungtiq.apps.googleusercontent.com",
+=======
+          "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
 =======
           "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
 >>>>>>> parent of 5a16241 (Adding Firestore test page)
@@ -37,7 +51,11 @@
       "api_key": [
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "current_key": "AIzaSyARG5HKG7DBYWZrrMvLx_RKtxrYxSwubmk"
+=======
+          "current_key": "AIzaSyDUlQc9Owkz2VFSIDUj7acaKExXNRN7g1g"
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
 =======
           "current_key": "AIzaSyDUlQc9Owkz2VFSIDUj7acaKExXNRN7g1g"
 >>>>>>> parent of 5a16241 (Adding Firestore test page)
@@ -48,7 +66,11 @@
           "other_platform_oauth_client": [
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
               "client_id": "747209931989-0f7bgm52obd1n11qkq3pf1li5jungtiq.apps.googleusercontent.com",
+=======
+              "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+>>>>>>> parent of 5a16241 (Adding Firestore test page)
 =======
               "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
 >>>>>>> parent of 5a16241 (Adding Firestore test page)
