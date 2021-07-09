@@ -28,9 +28,10 @@ class FirestoreScreen extends Component {
     }
 
     render() {
+        const userDocument = firestore().collection("Artworks").doc("pszURAwOJsHoOgRcuoDr").get();
         return (
             <View>
-                <Text>  Name : {this.state.user.name}    </Text>
+                <Text> toto :   </Text>
             </View>
         )
     }

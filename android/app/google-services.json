@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "786857485522",
-    "project_id": "waveauthentication-85524",
-    "storage_bucket": "waveauthentication-85524.appspot.com"
+    "project_number": "747209931989",
+    "firebase_url": "https://waveauth-project-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "waveauth-project",
+    "storage_bucket": "waveauth-project.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:786857485522:android:91750e6313c53f779ef90b",
+        "mobilesdk_app_id": "1:747209931989:android:72a976c710d5777e4c365c",
         "android_client_info": {
           "package_name": "com.revteltech.nfcopenrewriter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "786857485522-98c6frc59nnl5gf5kb2o6cpjsuj4sa6j.apps.googleusercontent.com",
+          "client_id": "747209931989-0f7bgm52obd1n11qkq3pf1li5jungtiq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-toyepJ1X9T5wcw9H9VbQ6CNBqetoKRc"
+          "current_key": "AIzaSyARG5HKG7DBYWZrrMvLx_RKtxrYxSwubmk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "786857485522-98c6frc59nnl5gf5kb2o6cpjsuj4sa6j.apps.googleusercontent.com",
+              "client_id": "747209931989-0f7bgm52obd1n11qkq3pf1li5jungtiq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
