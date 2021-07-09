@@ -69,6 +69,15 @@ function HomeScreen(props) {
           style={{marginTop: 10, marginBottom: 10}}>
           START AUTHENTICATION
         </Button>
+        <Button
+          mode="contained"
+          color="black"
+          onPress={async () => {
+              navigation.navigate('Firestore');
+          }}
+          style={{marginTop: 10, marginBottom: 10}}>
+          Firestore test
+        </Button>
       </View>
     );
   }

@@ -30,6 +30,9 @@
 
 ## To do list
 
+Configuration de firestore sur iOS :
+https://rnfirebase.io/#3-ios-setup
+
 - Ajouter la base de données Firestore
 - Corriger le warning : []
 - Mettre une vérification de la connexion internet au lancement de l'application
