@@ -7,7 +7,7 @@ class FirestoreScreen extends Component {
 
     state = {
         user: {
-            name : ""
+            Publisher : ""
         }
     }
 
@@ -17,7 +17,7 @@ class FirestoreScreen extends Component {
         this.subscriber = firestore().collection("Artworks").doc("pszURAwOJsHoOgRcuoDr").onSnapshot(doc => {
             this.setState({ 
                 user : { 
-                    name : doc.data().name
+                    Publisher : doc.data().Publisher
             }})
         })
     }
@@ -28,10 +28,9 @@ class FirestoreScreen extends Component {
     }
 
     render() {
-        const userDocument = firestore().collection("Artworks").doc("pszURAwOJsHoOgRcuoDr").get();
         return (
             <View>
-                <Text> toto :   </Text>
+                <Text> toto : {this.state.user.Publisher}   </Text>
             </View>
         )
     }
