@@ -36,16 +36,13 @@ class FirestoreScreen extends Component {
     constructor(props){
         
         const {tag} = props.route.params;
-        const techs = getTechList(tag);
-        const ndef =
-            Array.isArray(tag.ndefMessage) && tag.ndefMessage.length > 0
-                ? tag.ndefMessage[0]
-                : null;
-        console.log(techs)
+        const NFCchipID = tag.id
+        console.log(tag.id)
 
         super(props);
         this.subscriber = firestore().collection("Artworks").doc("pszURAwOJsHoOgRcuoDr").onSnapshot(doc => {
             this.setState({ 
+                NFCchipID: tag.id,
                 artwork : { 
                     PictureLink1: doc.data().PictureLink1,
                     PictureLink2: doc.data().PictureLink2,
@@ -83,7 +80,7 @@ class FirestoreScreen extends Component {
                         />
                 </View>
                 <View style={styles.sectionTempo}>
-                    <Text> NFC chip ID :  </Text>                             
+                    <Text> NFC chip ID :  {this.state.NFCchipID} </Text>                             
                 </View>
                 <View style={styles.section}>
                 <Text style={styles.sectionLabel}>General Informations</Text>
