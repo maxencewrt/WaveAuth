@@ -73,7 +73,10 @@ function HomeScreen(props) {
           mode="contained"
           color="black"
           onPress={async () => {
-              navigation.navigate('Firestore');
+              const tag = await NfcProxy.readTag();
+              if (tag) {
+              navigation.navigate('Firestore', {tag});
+              }
           }}
           style={{marginTop: 10, marginBottom: 10}}>
           Firestore test

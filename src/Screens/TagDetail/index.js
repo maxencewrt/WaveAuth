@@ -16,35 +16,9 @@ function TagDetailScreen(props) {
   return (
     <ScrollView style={[styles.wrapper, {padding: 10}]}>
       <View style={styles.section}>
-      <Text>Mettre les photos via lien HTML</Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionLabel}>TITTLE</Text>
-        <Text>{tag.id || '---'}</Text>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.sectionLabel}>PRODUCT INFO</Text>
-        <View style={styles.row}>
-          {techs.map((tech) => (
-            <Button
-              key={tech}
-              mode="outlined"
-              style={{marginRight: 5, marginBottom: 5}}>
-              {tech}
-            </Button>
-          ))}
-        </View>
-      </View>
-
-      <View style={styles.section}>
-        <Text style={styles.sectionLabel}>EDITION INFO</Text>
-        {ndef ? <NdefMessage ndef={ndef} /> : <Text>---</Text>}
-      </View>
-
-      <View style={styles.section}>
         <Text style={styles.sectionLabel}>NFT INFO</Text>
         <Text>{JSON.stringify(tag, null, 2)}</Text>
+        <Text>TAG.ID = {tag.id || '---'}</Text>
       </View>
     </ScrollView>
   );

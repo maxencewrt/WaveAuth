@@ -1,9 +1,11 @@
 import React from 'react';
-import {StyleSheet, View, ScrollView, Text, Image, Button} from 'react-native';
+import {StyleSheet, View, ScrollView, Text, Image, Button, Linking} from 'react-native';
 import firestore from "@react-native-firebase/firestore";
 import { Component } from 'react';
+import {getTechList} from '../../Utils/getTechList';
 
 class FirestoreScreen extends Component {
+
     state = {
         artwork: {
             //All product informations
@@ -30,7 +32,17 @@ class FirestoreScreen extends Component {
         }
     }
 
+    
     constructor(props){
+        
+        const {tag} = props.route.params;
+        const techs = getTechList(tag);
+        const ndef =
+            Array.isArray(tag.ndefMessage) && tag.ndefMessage.length > 0
+                ? tag.ndefMessage[0]
+                : null;
+        console.log(techs)
+
         super(props);
         this.subscriber = firestore().collection("Artworks").doc("pszURAwOJsHoOgRcuoDr").onSnapshot(doc => {
             this.setState({ 
@@ -61,25 +73,31 @@ class FirestoreScreen extends Component {
 
     render() {
         return (
+            //this.TagDetailScreen,
             <ScrollView style={[styles.wrapper, {padding: 10}]}>
                 <View style={styles.section}>
                     <Image 
-                        style={{width: 380, height: 340} }
-                        source={{uri : this.state.artwork.PictureLink1}} />
+                        style={{width: '100%', height: 400, borderRadius: 16, justifyContent: 'center' }}
+                        source={ this.state.artwork.PictureLink1 ? {uri:  this.state.artwork.PictureLink1 } : null}
+                        // source={{uri : this.state.artwork.PictureLink1}} 
+                        />
+                </View>
+                <View style={styles.sectionTempo}>
+                    <Text> NFC chip ID :  </Text>                             
                 </View>
                 <View style={styles.section}>
                 <Text style={styles.sectionLabel}>General Informations</Text>
+                    <Text> Tittle : {this.state.artwork.Tittle}   </Text>  
                     <Text> Publisher : {this.state.artwork.Publisher}   </Text>             
                     <Text> Producer : {this.state.artwork.Producer}   </Text>              
-                    <Text> ReleaseDate : {this.state.artwork.ReleaseDate}   </Text>           
-                    <Text> SerialNumber : {this.state.artwork.SerialNumber}   </Text>          
-                    <Text> Tittle : {this.state.artwork.Tittle}   </Text>                
+                    <Text> ReleaseDate : {this.state.artwork.ReleaseDate}   </Text>                     
                     <Text> Type : {this.state.artwork.Type}   </Text>                  
-                    <Text> Weight : {this.state.artwork.Weight}   </Text>                
+                    <Text> Weight : {this.state.artwork.Weight}   </Text>  
+                    <Text> Measurements : {this.state.artwork.Measurements} </Text>              
                     <Text> Edition : {this.state.artwork.Edition}   </Text>               
                     <Text> EditionSize : {this.state.artwork.EditionSize}   </Text>           
                     <Text> Materials : {this.state.artwork.Materials}   </Text>             
-                    <Text> Measurements : {this.state.artwork.Measurements} </Text>          
+                    <Text> SerialNumber : {this.state.artwork.SerialNumber}   </Text>        
                 </View>
                 <View style={styles.section}>
                     <Text style={styles.sectionLabel}>Blockchain Informations</Text>
@@ -97,8 +115,9 @@ class FirestoreScreen extends Component {
                     mode="contained"
                     color="black"
                     style={{marginTop: 8}}
-                    title="add to collection">
-                    add to collection
+                    title="add to collection"
+                    onPress={() => {
+                        Linking.openURL('https://mystudiolo.com')}}>
                     </Button>
                 </View>
             </ScrollView>
@@ -118,6 +137,12 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 8,
     backgroundColor: 'white',
+    marginBottom: 15,
+  },
+  sectionTempo: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: 'orange',
     marginBottom: 15,
   },
   sectionLabel: {
