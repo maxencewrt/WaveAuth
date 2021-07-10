@@ -4,8 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {Appbar} from 'react-native-paper';
 import LandingScreen from './Screens/Landing';
 import HomeScreen from './Screens/Home';
-import TagDetailScreen from './Screens/TagDetail';
-import FirestoreScreen from './Screens/Firestore/firestore';
+import TagDetailScreen from './Screens/TagDetail/index';
 //import NdefTypeListScreen from './Screens/NdefTypeList';
 // import NdefWriteScreen from './Screens/NdefWrite';
 import CustomTransceiveScreen from './Screens/CustomTransceive';
@@ -46,19 +45,14 @@ function Main(props) {
         options={{title: 'HOME'}}
       />
       <MainStack.Screen
-        name="TagDetail"
-        options={{title: 'Artwork detail'}}
-        component={TagDetailScreen}
-      />
-      <MainStack.Screen
         name="CustomTransceive"
         component={CustomTransceiveScreen}
         options={{title: 'CUSTOM TRANSCEIVE'}}
       />
       <MainStack.Screen
-        name="Firestore"
+        name="TagDetail"
         options={{title: 'Firestore Screen'}}
-        component={FirestoreScreen}
+        component={TagDetailScreen}
       />
     </MainStack.Navigator>
   );

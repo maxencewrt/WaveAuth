@@ -69,18 +69,6 @@ function HomeScreen(props) {
           style={{marginTop: 10, marginBottom: 10}}>
           START AUTHENTICATION
         </Button>
-        <Button
-          mode="contained"
-          color="black"
-          onPress={async () => {
-              const tag = await NfcProxy.readTag();
-              if (tag) {
-              navigation.navigate('Firestore', {tag});
-              }
-          }}
-          style={{marginTop: 10, marginBottom: 10}}>
-          Firestore test
-        </Button>
       </View>
     );
   }
