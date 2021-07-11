@@ -5,6 +5,7 @@ import {Appbar} from 'react-native-paper';
 import LandingScreen from './Screens/Landing';
 import HomeScreen from './Screens/Home';
 import TagDetailScreen from './Screens/TagDetail/index';
+import AuthFailed from './Screens/AuthFailed';
 //import NdefTypeListScreen from './Screens/NdefTypeList';
 // import NdefWriteScreen from './Screens/NdefWrite';
 import CustomTransceiveScreen from './Screens/CustomTransceive';
@@ -51,8 +52,13 @@ function Main(props) {
       />
       <MainStack.Screen
         name="TagDetail"
-        options={{title: 'Firestore Screen'}}
+        options={{title: 'Authentication Sucessfull'}}
         component={TagDetailScreen}
+      />
+      <MainStack.Screen
+        name="AuthFailed"
+        options={{title: 'Authentication Failed'}}
+        component={AuthFailed}
       />
     </MainStack.Navigator>
   );

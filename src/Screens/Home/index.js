@@ -14,6 +14,7 @@ import {
 import NfcProxy from '../../NfcProxy';
 import {Button, IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import firestore from "@react-native-firebase/firestore";
 
 const { width, height } = Dimensions.get('screen');
 
@@ -68,6 +69,16 @@ function HomeScreen(props) {
           }}
           style={{marginTop: 10, marginBottom: 10}}>
           START AUTHENTICATION
+        </Button>
+
+        <Button
+          mode="contained"
+          color="red"
+          onPress={async () => {
+            navigation.navigate('AuthFailed');
+          }}
+          style={{marginTop: 10, marginBottom: 10}}>
+          Auth Failed
         </Button>
       </View>
     );
