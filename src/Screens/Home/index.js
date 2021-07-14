@@ -14,27 +14,141 @@ import {
 import NfcProxy from '../../NfcProxy';
 import {Button, IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import firestore from "@react-native-firebase/firestore";
 
-const { width, height } = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 
-const data = [
-  'https://cdn.dribbble.com/users/3281732/screenshots/11205211/media/44c854b0a6e381340fbefe276e03e8e4.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200'
+const bgs = ['#A5BBFF', '#DDBEFE', '#FF63ED', '#B98EFF'];
+
+const DATA = [
+  {
+    key: '3571572',
+    title: 'Multi-lateral intermediate moratorium',
+    description:
+      "I'll back up the multi-byte XSS matrix, that should feed the SCSI application!",
+    image: 'https://image.flaticon.com/icons/png/256/3571/3571572.png',
+  },
+  {
+    key: '3571747',
+    title: 'Automated radical data-warehouse',
+    description:
+      'Use the optical SAS system, then you can navigate the auxiliary alarm!',
+    image: 'https://image.flaticon.com/icons/png/256/3571/3571747.png',
+  },
+  {
+    key: '3571680',
+    title: 'Inverse attitude-oriented system engine',
+    description:
+      'The ADP array is down, compress the online sensor so we can input the HTTP panel!',
+    image: 'https://image.flaticon.com/icons/png/256/3571/3571680.png',
+  },
+  {
+    key: '3571603',
+    title: 'Monitored global data-warehouse',
+    description: 'We need to program the open-source IB interface!',
+    image: 'https://image.flaticon.com/icons/png/256/3571/3571603.png',
+  },
 ];
 
+const Backdrop = ({scrollX}) => {
+  const backgroundColor = scrollX.interpolate({
+    inputRange: bgs.map((_, i) => i * width),
+    outputRange: bgs.map((bg) => bg),
+  });
+  return (
+    <Animated.View
+      style={[
+        StyleSheet.absoluteFillObject,
+        {
+          backgroundColor,
+        },
+      ]}
+    />
+  );
+};
 
-const imageW = width * 0.75;
-const imageH = imageW * 1.54;
+const Indicator = ({scrollX}) => {
+  return (
+    <View style={{position: 'absolute', bottom: 100, flexDirection: 'row'}}>
+      {DATA.map((_, i) => {
+        const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
+
+        const scale = scrollX.interpolate({
+          inputRange,
+          outputRange: [0.8, 1.4, 0.8],
+          extrapolate: 'clamp',
+        });
+
+        const opacity = scrollX.interpolate({
+          inputRange,
+          outputRange: [0.6, 0.9, 0.6],
+          extrapolate: 'clamp',
+        });
+
+        return (
+          <Animated.View
+            key={`indicator-${i}`}
+            style={{
+              height: 10,
+              width: 10,
+              borderRadius: 5,
+              backgroundColor: 'white',
+              opacity,
+              margin: 10,
+              transform: [
+                {
+                  scale,
+                },
+              ],
+            }}
+          />
+        );
+      })}
+    </View>
+  );
+};
+
+const Square = ({scrollX}) => {
+  const YOLO = Animated.modulo(
+    Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
+    1,
+  );
+
+  const rotate = YOLO.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['35deg', '-35deg', '35deg'],
+  });
+
+  const translateX = YOLO.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [0, -height, 0],
+  });
+
+  return (
+    <Animated.View
+      style={{
+        width: height,
+        height: height,
+        backgroundColor: 'white',
+        borderRadius: 86,
+        position: 'absolute',
+        top: -height * 0.6,
+        transform: [
+          {
+            rotate,
+          },
+          {
+            translateX,
+          },
+        ],
+      }}
+    />
+  );
+};
 
 function HomeScreen(props) {
   const {navigation} = props;
   const [supported, setSupported] = React.useState(null);
   const [enabled, setEnabled] = React.useState(null);
-  const padding = 40;
-  const width = Dimensions.get('window').width - 2 * padding;
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -53,26 +167,37 @@ function HomeScreen(props) {
     return (
       <View
         style={{
-          flex: 2,
           alignItems: 'stretch',
           alignSelf: 'center',
-          width,
         }}>
-        
         <Button
           mode="contained"
-          color="black"
+          style={{
+            marginTop: 10,
+            marginBottom: 10,
+            padding: 10,
+            borderRadius: 50,
+            backgroundColor: 'white',
+          }}
           onPress={async () => {
             const tag = await NfcProxy.readTag();
             if (tag) {
               navigation.navigate('TagDetail', {tag});
             }
-          }}
-          style={{marginTop: 10, marginBottom: 10}}>
-          START AUTHENTICATION
+          }}>
+          <Text
+            style={{
+              fontSize: 16,
+              lineHeight: 21,
+              fontWeight: 'bold',
+              letterSpacing: 0.25,
+              color: 'black',
+            }}>
+            START AUTHENTICATION
+          </Text>
         </Button>
 
-        <Button
+        {/* <Button
           mode="contained"
           color="red"
           onPress={async () => {
@@ -80,7 +205,7 @@ function HomeScreen(props) {
           }}
           style={{marginTop: 10, marginBottom: 10}}>
           Auth Failed
-        </Button>
+        </Button> */}
       </View>
     );
   }
@@ -95,7 +220,8 @@ function HomeScreen(props) {
           width,
         }}>
         <Text style={{textAlign: 'center', marginBottom: 10}}>
-          Your NFC is not enabled. Please first enable it and hit 'check again' button
+          Your NFC is not enabled. Please first enable it and hit 'check again'
+          button
         </Text>
 
         <Button
@@ -119,107 +245,76 @@ function HomeScreen(props) {
     );
   }
 
-  const Indicator = ({scrollX}) => {
-    return <View style={{position: 'absolute', flexDirection: 'row'}}>
-      {data.map((_, i) => {
-        const inputRange = [(i - 1) * width, i * width, ( i + 1) * width];
-        const scale = scrollX.interpolate({
-          inputRange,
-          outputRange: [0.8, 1.4, 0.8],
-          extrapolate: 'clamp',
-        })
-        const opacity = scrollX.interpolate({
-          inputRange,
-          outputRange: [0.4, 1, 0.4],
-          extrapolate: 'clamp',
-        })
-        return <Animated.View
-          key={`indicator-${i}`}
-          style={{
-            height: 10,
-            width: 10, 
-            borderRadius: 5,
-            backgroundColor: '#fff',
-            opacity,
-            margin: 10,
-            transform: [
-              {
-                scale,
-              },
-            ]
-          }}
-        />
-      }
-      )}
-    </View>
-  }
-
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView />
-      <View style={{flex: 1, padding}}>
-        <View
-          style={StyleSheet.absoluteFillObject}
-        >
-          {data.map((image, index) => {
-            const inputRange = [
-              (index - 1) * width,
-              index * width,
-              (index + 1) * width
-            ]
-            const opacity = scrollX.interpolate({
-              inputRange,
-              outputRange: [0, 1, 0]
-            })
-            return <Animated.Image
-              key={`image-${index}`}
-              source={{uri: image}}
-              style={[
-                StyleSheet.absoluteFillObject,
-                {
-                  opacity
-                }
-              ]}
-              blurRadius={10}
-            />
-          })}
-        </View>
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <Backdrop scrollX={scrollX} />
+        <Square scrollX={scrollX} />
         <Animated.FlatList
-          data={data}
+          data={DATA}
+          keyExtractor={(item) => item.key}
+          horizontal
+          scrollEventThrottle={32}
+          pagingEnabled
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],
-            { useNativeDriver: true}
+            {useNativeDriver: false},
           )}
-          horizontal
-          pagingEnabled
-          keyExtractor={(item, index) => index.toString()}
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 10}}
           renderItem={({item}) => {
-            return <View style={{width, justifyContent : 'center', alignItems: 'center'}}>
-              <Image source={{uri: item}} style={{
-                width: imageW,
-                height: imageH,
-                resizeMode: 'cover',
-                borderRadius: 16
-              }}/>
-            </View>
+            return (
+              <View style={{width, alignItems: 'center', padding: 20}}>
+                <View
+                  style={{flex: 0.6, justifyContent: 'center', padding: 80}}>
+                  <Image
+                    source={{uri: item.image}}
+                    style={{
+                      width: width / 2,
+                      height: width / 2,
+                      resizeMode: 'contain',
+                    }}
+                  />
+                </View>
+                <View style={{flex: 0.2}}>
+                  <Text
+                    style={{
+                      fontWeight: 'bold',
+                      fontSize: 28,
+                      marginBottom: 10,
+                      color: 'white',
+                    }}>
+                    {item.title}
+                  </Text>
+                  <Text
+                    style={{
+                      fontWeight: '300',
+                      color: 'white',
+                    }}>
+                    {item.description}
+                  </Text>
+                </View>
+              </View>
+            );
           }}
         />
-        <View style={{padding, justifyContent: 'center',alignItems: 'center'}}>
-          <Indicator scrollX={scrollX}/>
-        </View>
-        
-        {supported && !enabled && renderNfcNotEnabled()}
+        <View style={{alignItems: 'center', flex: 0.2}}>
+          <Indicator scrollX={scrollX} />
 
-        {supported && enabled && renderNfcButtons()}
-        <IconButton
-          icon={() => <Icon name="info-outline" size={25} />}
-          style={styles.settingIcon}
-          onPress={() => {
-            navigation.navigate('Settings');
-          }}
-        />
+          {supported && enabled && renderNfcButtons()}
+
+          {supported && !enabled && renderNfcNotEnabled()}
+        </View>
       </View>
+
+      <IconButton
+        icon={() => <Icon name="info-outline" size={25} />}
+        style={styles.settingIcon}
+        onPress={() => {
+          navigation.navigate('Settings');
+        }}
+      />
     </>
   );
 }
@@ -229,6 +324,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.OS === 'android' ? 0 : 0,
     right: 0,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
