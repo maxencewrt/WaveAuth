@@ -185,13 +185,18 @@ function HomeScreen(props) {
             if (tag) {
               console.log('Homepage tag', tag.id);
 
-              const GetBdd = database()
+              database()
                 .ref('/Artworks/' + tag.id)
                 .on('value', (snapshot) => {
-                  console.log('User data: ', snapshot.val());
+                  //console.log('User data: ', snapshot.val());
+                  const dataGet = snapshot.val();
+                  console.log('Home2', dataGet);
+                  if (dataGet != undefined) {
+                    navigation.navigate('TagDetail', {tag});
+                  } else {
+                    navigation.navigate('AuthFailed');
+                  }
                 });
-              console.log('Homepage BDD', GetBdd);
-              navigation.navigate('TagDetail', {tag});
             }
           }}>
           <Text

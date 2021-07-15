@@ -24,8 +24,7 @@ class TagDetailScreen extends Component {
   }
 
   render() {
-    console.log('Render', this.state.TagID);
-    //const NFCid = this.tag.id;
+    //console.log('Render', this.state.TagID);
 
     return (
       <ScrollView style={[styles.wrapper, {padding: 10}]}>
