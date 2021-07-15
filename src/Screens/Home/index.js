@@ -14,18 +14,19 @@ import {
 import NfcProxy from '../../NfcProxy';
 import {Button, IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import database from '@react-native-firebase/database';
 
 const {width, height} = Dimensions.get('screen');
 
-const bgs = ['#A5BBFF', '#DDBEFE', '#FF63ED', '#B98EFF'];
+const bgs = ['#5A49F8', '#6C07EB', '#7C06ED', '#4B1AFC'];
 
 const DATA = [
   {
     key: '3571572',
-    title: 'Multi-lateral intermediate moratorium',
+    title: 'Step 1 : Locate the Chip',
     description:
-      "I'll back up the multi-byte XSS matrix, that should feed the SCSI application!",
-    image: 'https://image.flaticon.com/icons/png/256/3571/3571572.png',
+      'To see where the chip is located, refer to the information provided by the seller. Place yout phone in front of the scanning area.',
+    image: 'https://image.flaticon.com/icons/png/512/3712/3712265.png',
   },
   {
     key: '3571747',
@@ -129,7 +130,7 @@ const Square = ({scrollX}) => {
         width: height,
         height: height,
         backgroundColor: 'white',
-        borderRadius: 86,
+        borderRadius: 200,
         position: 'absolute',
         top: -height * 0.6,
         transform: [
@@ -182,6 +183,14 @@ function HomeScreen(props) {
           onPress={async () => {
             const tag = await NfcProxy.readTag();
             if (tag) {
+              console.log('Homepage tag', tag.id);
+
+              const GetBdd = database()
+                .ref('/Artworks/' + tag.id)
+                .on('value', (snapshot) => {
+                  console.log('const', snapshot.val());
+                });
+              //
               navigation.navigate('TagDetail', {tag});
             }
           }}>
