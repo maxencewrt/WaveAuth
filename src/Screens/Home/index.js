@@ -188,9 +188,9 @@ function HomeScreen(props) {
               const GetBdd = database()
                 .ref('/Artworks/' + tag.id)
                 .on('value', (snapshot) => {
-                  console.log('const', snapshot.val());
+                  console.log('User data: ', snapshot.val());
                 });
-              //
+              console.log('Homepage BDD', GetBdd);
               navigation.navigate('TagDetail', {tag});
             }
           }}>
