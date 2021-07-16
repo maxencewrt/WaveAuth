@@ -94,7 +94,6 @@ class TagDetailScreen extends Component {
                 ? {uri: this.state.artwork.PictureLink1}
                 : null
             }
-            // source={{uri : this.state.artwork.PictureLink1}}
           />
         </View>
         <View style={styles.sectionTempo}>
