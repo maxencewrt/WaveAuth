@@ -183,8 +183,6 @@ function HomeScreen(props) {
           onPress={async () => {
             const tag = await NfcProxy.readTag();
             if (tag) {
-              console.log('Homepage tag', tag.id);
-
               database()
                 .ref('/Artworks/' + tag.id)
                 .on('value', (snapshot) => {
