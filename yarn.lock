@@ -1275,6 +1275,11 @@
     "opencollective-postinstall" "^2.0.1"
     "superstruct" "^0.6.2"
 
+"@react-native-firebase/database@^12.1.0":
+  "integrity" "sha512-3VsCd6r474RZMAlj6rqntHnzsYsU58qa6Joo0GshmzuWRkMTbpj8sd3R9sMICavEwxwYbN6Gau7W6GJIyTf7Jw=="
+  "resolved" "https://registry.npmjs.org/@react-native-firebase/database/-/database-12.1.0.tgz"
+  "version" "12.1.0"
+
 "@react-native-firebase/firestore@^12.1.0":
   "integrity" "sha512-SyiqRAQRS0C0Gh5gOZBp9UM0FFOF555uqJK+3NzO2GHGYM7ofLONyhnhZEJGWk9iDog/TnRjlAHC3C1zsDe+1w=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-12.1.0.tgz"
@@ -5109,22 +5114,9 @@
     "jest-cli" "^26.4.2"
 
 "jetifier@^1.6.2":
-<<<<<<< HEAD
   "integrity" "sha512-3Zi16h6L5tXDRQJTb221cnRoVG9/9OvreLdLU2/ZjRv/GILL+2Cemt0IKvkowwkDpvouAU1DQPOJ7qaiHeIdrw=="
   "resolved" "https://registry.npmjs.org/jetifier/-/jetifier-1.6.8.tgz"
   "version" "1.6.8"
-=======
-  "integrity" "sha512-JNAkmPeB/GS2tCRqUzRPsTOHpGDah7xP18vGJfIjZC+W2sxEHbxgJxetIjIqhjQ3yYbYNEELkM/spKLtwoOSUQ=="
-  "resolved" "https://registry.npmjs.org/jetifier/-/jetifier-1.6.6.tgz"
-  "version" "1.6.6"
-
-"jose@^2.0.5":
-  "integrity" "sha512-BAiDNeDKTMgk4tvD0BbxJ8xHEHBZgpeRZ1zGPPsitSyMgjoMWiLGYAE7H7NpP5h0lPppQajQs871E8NHUrzVPA=="
-  "resolved" "https://registry.npmjs.org/jose/-/jose-2.0.5.tgz"
-  "version" "2.0.5"
-  dependencies:
-    "@panva/asn1.js" "^1.0.0"
->>>>>>> parent of 5a16241 (Adding Firestore test page)
 
 "js-tokens@^3.0.0 || ^4.0.0", "js-tokens@^4.0.0":
   "integrity" "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
