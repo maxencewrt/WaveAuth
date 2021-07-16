@@ -190,7 +190,7 @@ function HomeScreen(props) {
                 .on('value', (snapshot) => {
                   //console.log('User data: ', snapshot.val());
                   const dataGet = snapshot.val();
-                  console.log('Home2', dataGet);
+                  //console.log('Data from Firebase : ', dataGet);
                   if (dataGet != undefined) {
                     navigation.navigate('TagDetail', {tag});
                   } else {
