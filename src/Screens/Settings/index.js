@@ -76,7 +76,7 @@ function SettingsScreen(props) {
         Keyboard.removeListener('keyboardWillHide', onKbHide);
       }
     };
-  }, []);
+  });
 
   return (
     <ScrollView
@@ -108,7 +108,7 @@ function SettingsScreen(props) {
           </>
         )}
         <List.Item title="Version" description={version} />
-      
+
         <List.Item
           title="WaveAuth Website"
           description="https://waveauth.com/"
@@ -123,7 +123,10 @@ function SettingsScreen(props) {
           title="Kevin GERMAIN"
           left={() => (
             <Image
-              source={{uri : 'https://media-exp3.licdn.com/dms/image/C4D03AQEuu_SiVyoTtA/profile-displayphoto-shrink_400_400/0/1576625327623?e=1629331200&v=beta&t=fsV0HLZO2BZBBo3a6A93QGcw1arKqx_leunxxsD56bA',}}
+              source={{
+                uri:
+                  'https://media-exp3.licdn.com/dms/image/C4D03AQEuu_SiVyoTtA/profile-displayphoto-shrink_400_400/0/1576625327623?e=1629331200&v=beta&t=fsV0HLZO2BZBBo3a6A93QGcw1arKqx_leunxxsD56bA',
+              }}
               style={styles.maintainerIcon}
               resizeMode="contain"
             />
@@ -137,21 +140,29 @@ function SettingsScreen(props) {
           title="Vladimir IGNATOVIC"
           left={() => (
             <Image
-              source={{uri : 'https://media-exp3.licdn.com/dms/image/C5603AQE7OEEatDWt4A/profile-displayphoto-shrink_400_400/0/1537862688780?e=1629331200&v=beta&t=gC0Afnc8HYFGQt3URuxwCHWUWxwDXjsOBi_6EsKDhW0',}}
+              source={{
+                uri:
+                  'https://media-exp3.licdn.com/dms/image/C5603AQE7OEEatDWt4A/profile-displayphoto-shrink_400_400/0/1537862688780?e=1629331200&v=beta&t=gC0Afnc8HYFGQt3URuxwCHWUWxwDXjsOBi_6EsKDhW0',
+              }}
               style={styles.maintainerIcon}
               resizeMode="contain"
             />
           )}
           description="linkedin - Vladimir Ignatovic"
           onPress={() => {
-            Linking.openURL('https://www.linkedin.com/in/vladimir-ignjatovic-958784137/');
+            Linking.openURL(
+              'https://www.linkedin.com/in/vladimir-ignjatovic-958784137/',
+            );
           }}
         />
         <List.Item
           title="Maxence Wurth"
           left={() => (
             <Image
-              source={{uri : 'https://media-exp3.licdn.com/dms/image/C4D03AQH1TiXEPtYwDQ/profile-displayphoto-shrink_800_800/0/1579628394334?e=1629331200&v=beta&t=Ra9ZIfhCsyJSNqzeeCGVW2EN5CGeKACxEHKPbqfa-dE',}}
+              source={{
+                uri:
+                  'https://media-exp3.licdn.com/dms/image/C4D03AQH1TiXEPtYwDQ/profile-displayphoto-shrink_800_800/0/1579628394334?e=1629331200&v=beta&t=Ra9ZIfhCsyJSNqzeeCGVW2EN5CGeKACxEHKPbqfa-dE',
+              }}
               style={styles.maintainerIcon}
               resizeMode="contain"
             />
@@ -168,7 +179,8 @@ function SettingsScreen(props) {
           color="black"
           style={{marginTop: 8}}
           onPress={() => {
-            Linking.openURL('mailto:support@waveauth.com')}}>
+            Linking.openURL('mailto:support@waveauth.com');
+          }}>
           contact us
         </Button>
       </View>

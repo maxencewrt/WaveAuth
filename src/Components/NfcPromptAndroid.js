@@ -60,20 +60,21 @@ function NfcPromptAndroid(props) {
         <Animated.View style={[styles.prompt, promptAnimStyle]}>
           <View
             style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            
             <Text>Ready to Scan</Text>
 
             <Image
-              source={require('../../images/nfc-512.png')}
-              style={{width: 120, height: 120, padding: 20}}
+              source={{
+                uri:
+                  'https://image.flaticon.com/icons/png/512/2546/2546382.png',
+              }}
+              style={{width: 100, height: 150, padding: 20}}
               resizeMode="contain"
             />
 
             <Text>Hold your phone near the NFC tag</Text>
           </View>
 
-          <Button mode="contained" onPress={cancelNfcScan}
-            color ="black">
+          <Button mode="contained" onPress={cancelNfcScan} color="black">
             CANCEL
           </Button>
         </Animated.View>

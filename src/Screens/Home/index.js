@@ -26,7 +26,7 @@ const DATA = [
     title: 'Step 1 : Locate the Chip',
     description:
       'To see where the chip is located, refer to the information provided by the seller. Place yout phone in front of the scanning area.',
-    image: 'https://image.flaticon.com/icons/png/512/3712/3712265.png',
+    image: 'https://image.flaticon.com/icons/png/512/1679/1679776.png',
   },
   {
     key: '3571747',
