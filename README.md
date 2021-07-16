@@ -28,6 +28,14 @@
 
 ## Problème connu + résolution
 
+- En cas de probème sur des componnents :
+  Décommenter :
+  CheckboxItem dans \src\components\Checkbox\Checkbox.tsx
+  FABGroup dans \src\components\FAB\FAB.tsx
+  RadioButtonItem dans \src\components\RadioButton\RadioButton.tsx
+  AppbarHeader dans \src\components\Appbar\Appbar.tsx
+  ToggleButtonRow dans \src\components\ToggleButton\ToggleButton.tsx
+
 ## To do list
 
 - Ajouter la base de données Firestore
