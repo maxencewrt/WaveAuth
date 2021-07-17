@@ -14,13 +14,9 @@ import {List, Button} from 'react-native-paper';
 import NfcManager, {NfcEvents} from 'react-native-nfc-manager';
 import {version} from '../../../package.json';
 
-const generalText = `
-Welcome to WaveAuth application, this project aims to authenticate your favorite articles.
+const {width, height} = Dimensions.get('screen');
 
-To find out more you can visit our site below.
-
-https://waveauth.com/
-`;
+const generalText = ``;
 
 function SettingsScreen(props) {
   const [nfcStatus, setNfcStatus] = React.useState(null);
@@ -87,104 +83,44 @@ function SettingsScreen(props) {
       }}
       keyboardShouldPersistTaps="handled">
       <View style={styles.topBanner}>
+        <Image
+          style={{
+            width: width / 2.5,
+            height: width / 2.5,
+            borderRadius: 16,
+            justifyContent: 'center',
+          }}
+          source={{
+            uri:
+              'http://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
+          }}
+        />
         <Text style={{lineHeight: 16}}>{generalText}</Text>
       </View>
       <List.Section>
-        {Platform.OS === 'android' && (
-          <>
-            <List.Item
-              title="NFC Status"
-              description={
-                nfcStatus === null ? '---' : nfcStatus ? 'ON' : 'OFF'
-              }
-            />
-            <List.Item
-              title="NFC Settings"
-              description="Jump to System NFC Settings"
-              onPress={() => {
-                NfcManager.goToNfcSetting();
-              }}
-            />
-          </>
-        )}
+        <List.Item
+          title="Description"
+          description="WaveAuth is not only an app but a whole authentication process.
+          It allows you to ensure your collectibles are authentic with the NFC and Blockchain technologies."
+        />
+
         <List.Item title="Version" description={version} />
 
         <List.Item
           title="WaveAuth Website"
-          description="https://waveauth.com/"
+          description="https://waveauth.app/"
           onPress={() => {
-            Linking.openURL(
-              'https://github.com/revtel/react-native-nfc-rewriter',
-            );
-          }}
-        />
-        <List.Subheader>Team</List.Subheader>
-        <List.Item
-          title="Kevin GERMAIN"
-          left={() => (
-            <Image
-              source={{
-                uri:
-                  'https://media-exp3.licdn.com/dms/image/C4D03AQEuu_SiVyoTtA/profile-displayphoto-shrink_400_400/0/1576625327623?e=1629331200&v=beta&t=fsV0HLZO2BZBBo3a6A93QGcw1arKqx_leunxxsD56bA',
-              }}
-              style={styles.maintainerIcon}
-              resizeMode="contain"
-            />
-          )}
-          description="linkedin - Kevin Germain"
-          onPress={() => {
-            Linking.openURL('https://www.linkedin.com/in/kevin-g/');
+            Linking.openURL('https://waveauth.app/');
           }}
         />
         <List.Item
-          title="Vladimir IGNATOVIC"
-          left={() => (
-            <Image
-              source={{
-                uri:
-                  'https://media-exp3.licdn.com/dms/image/C5603AQE7OEEatDWt4A/profile-displayphoto-shrink_400_400/0/1537862688780?e=1629331200&v=beta&t=gC0Afnc8HYFGQt3URuxwCHWUWxwDXjsOBi_6EsKDhW0',
-              }}
-              style={styles.maintainerIcon}
-              resizeMode="contain"
-            />
-          )}
-          description="linkedin - Vladimir Ignatovic"
+          title="Contact US"
+          description="contact@waveauth.app"
           onPress={() => {
-            Linking.openURL(
-              'https://www.linkedin.com/in/vladimir-ignjatovic-958784137/',
-            );
-          }}
-        />
-        <List.Item
-          title="Maxence Wurth"
-          left={() => (
-            <Image
-              source={{
-                uri:
-                  'https://media-exp3.licdn.com/dms/image/C4D03AQH1TiXEPtYwDQ/profile-displayphoto-shrink_800_800/0/1579628394334?e=1629331200&v=beta&t=Ra9ZIfhCsyJSNqzeeCGVW2EN5CGeKACxEHKPbqfa-dE',
-              }}
-              style={styles.maintainerIcon}
-              resizeMode="contain"
-            />
-          )}
-          description="linkedin - Maxence Wurth"
-          onPress={() => {
-            Linking.openURL('https://www.linkedin.com/in/maxence-wurth/');
+            Linking.openURL('contact@waveauth.app');
           }}
         />
       </List.Section>
-      <View style={{padding: 12}}>
-        <Button
-          mode="contained"
-          color="black"
-          style={{marginTop: 8}}
-          onPress={() => {
-            Linking.openURL('mailto:support@waveauth.com');
-          }}>
-          contact us
-        </Button>
-      </View>
-
       {keyboardPadding > 0 && <View style={{height: keyboardPadding}} />}
     </ScrollView>
   );
@@ -198,7 +134,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     margin: 10,
     paddingHorizontal: 15,
-    backgroundColor: 'white',
+    alignItems: 'center',
   },
   maintainerIcon: {
     width: 54,

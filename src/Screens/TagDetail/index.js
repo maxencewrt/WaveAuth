@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  ScrollView,
-  Text,
-  Image,
-  Button,
-  Linking,
-} from 'react-native';
+import {StyleSheet, View, ScrollView, Text, Image} from 'react-native';
 import {Component} from 'react';
-import {getTechList} from '../../Utils/getTechList';
 import database, {firebase} from '@react-native-firebase/database';
-import {ThemeConsumer} from 'styled-components';
 
 class TagDetailScreen extends Component {
   state = {
@@ -96,11 +86,11 @@ class TagDetailScreen extends Component {
             }
           />
         </View>
-        <View style={styles.sectionTempo}>
+        {/* <View style={styles.sectionTempo}>
           <Text>NFC chip ID : {this.state.NFCchipID}</Text>
-        </View>
+        </View> */}
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>General Informations</Text>
+          <Text style={styles.sectionLabel}>General Information</Text>
           <Text> Title : {this.state.artwork.Title} </Text>
           <Text> Publisher : {this.state.artwork.Publisher} </Text>
           <Text> Producer : {this.state.artwork.Producer} </Text>
@@ -114,28 +104,9 @@ class TagDetailScreen extends Component {
           <Text> SerialNumber : {this.state.artwork.SerialNumber} </Text>
         </View>
         <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Blockchain Informations</Text>
+          <Text style={styles.sectionLabel}>Blockchain Information</Text>
           <Text> NFT : {this.state.artwork.NFT} </Text>
           <Text> NFTProvider : {this.state.artwork.NFTProvider} </Text>
-        </View>
-        <View style={styles.section}>
-          <Text style={styles.sectionLabel}>Owner Informations</Text>
-          <Text>
-            {' '}
-            LastOwnershipUpdate : {this.state.artwork.LastOwnershipUpdate}{' '}
-          </Text>
-          <Text> OwnerID : {this.state.artwork.OwnerID} </Text>
-          <Text> OwnerName : {this.state.artwork.OwnerName} </Text>
-        </View>
-        <View style={{padding: 12}}>
-          <Button
-            mode="contained"
-            color="black"
-            style={{marginTop: 8}}
-            title="add to collection"
-            onPress={() => {
-              Linking.openURL('https://mystudiolo.com');
-            }}></Button>
         </View>
       </ScrollView>
     );

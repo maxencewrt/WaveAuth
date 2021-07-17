@@ -47,7 +47,10 @@ function LandingScreen(props) {
   return (
     <View style={styles.container}>
       <Animated.Image
-        source={require('../../../images/nfc-rewriter-icon.png')}
+        source={{
+          uri:
+            'http://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
+        }}
         resizeMode="contain"
         style={[
           styles.image,

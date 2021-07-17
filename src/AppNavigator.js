@@ -6,11 +6,8 @@ import LandingScreen from './Screens/Landing';
 import HomeScreen from './Screens/Home';
 import TagDetailScreen from './Screens/TagDetail/index';
 import AuthFailed from './Screens/AuthFailed';
-//import NdefTypeListScreen from './Screens/NdefTypeList';
-// import NdefWriteScreen from './Screens/NdefWrite';
 import CustomTransceiveScreen from './Screens/CustomTransceive';
 import SettingsScreen from './Screens/Settings';
-// import SavedRecordScreen from './Screens/SavedRecord';
 import NfcPromptAndroid from './Components/NfcPromptAndroid';
 
 const MainStack = createStackNavigator();
@@ -52,7 +49,7 @@ function Main(props) {
       />
       <MainStack.Screen
         name="TagDetail"
-        options={{title: 'Authentication Sucessfull'}}
+        options={{title: 'Authentication Successful'}}
         component={TagDetailScreen}
       />
       <MainStack.Screen

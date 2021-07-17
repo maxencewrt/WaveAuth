@@ -18,15 +18,16 @@ import database from '@react-native-firebase/database';
 
 const {width, height} = Dimensions.get('screen');
 
-const bgs = ['#5A49F8', '#6C07EB', '#7C06ED', '#4B1AFC'];
+const bgs = ['#4721df', '#6C07EB', '#7C06ED', '#4B1AFC'];
 
 const DATA = [
   {
     key: '3571572',
-    title: 'Step 1 : Locate the Chip',
+    title: 'Locate the Chip',
     description:
       'To see where the chip is located, refer to the information provided by the seller. Place yout phone in front of the scanning area.',
-    image: 'https://image.flaticon.com/icons/png/512/1679/1679776.png',
+    image:
+      'http://waveauth.app/wp-content/uploads/2021/07/nfc_icon_bluePurple.png',
   },
   {
     key: '3571747',
@@ -116,7 +117,7 @@ const Square = ({scrollX}) => {
 
   const rotate = YOLO.interpolate({
     inputRange: [0, 0.5, 1],
-    outputRange: ['35deg', '-35deg', '35deg'],
+    outputRange: ['35deg', '-15deg', '35deg'],
   });
 
   const translateX = YOLO.interpolate({
@@ -186,9 +187,7 @@ function HomeScreen(props) {
               database()
                 .ref('/Artworks/' + tag.id)
                 .on('value', (snapshot) => {
-                  //console.log('User data: ', snapshot.val());
                   const dataGet = snapshot.val();
-                  //console.log('Data from Firebase : ', dataGet);
                   if (dataGet != undefined) {
                     navigation.navigate('TagDetail', {tag});
                   } else {
@@ -208,16 +207,6 @@ function HomeScreen(props) {
             START AUTHENTICATION
           </Text>
         </Button>
-
-        {/* <Button
-          mode="contained"
-          color="red"
-          onPress={async () => {
-            navigation.navigate('AuthFailed');
-          }}
-          style={{marginTop: 10, marginBottom: 10}}>
-          Auth Failed
-        </Button> */}
       </View>
     );
   }
@@ -279,12 +268,12 @@ function HomeScreen(props) {
             return (
               <View style={{width, alignItems: 'center', padding: 20}}>
                 <View
-                  style={{flex: 0.6, justifyContent: 'center', padding: 80}}>
+                  style={{flex: 0.6, justifyContent: 'center', padding: 50}}>
                   <Image
                     source={{uri: item.image}}
                     style={{
-                      width: width / 2,
-                      height: width / 2,
+                      width: width / 2.5,
+                      height: width / 2.5,
                       resizeMode: 'contain',
                     }}
                   />
