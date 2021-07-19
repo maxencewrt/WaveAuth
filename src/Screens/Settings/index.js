@@ -16,8 +16,6 @@ import {version} from '../../../package.json';
 
 const {width, height} = Dimensions.get('screen');
 
-const generalText = ``;
-
 function SettingsScreen(props) {
   const [nfcStatus, setNfcStatus] = React.useState(null);
   const [keyboardPadding, setKeyboardPadding] = React.useState(0);
@@ -95,29 +93,28 @@ function SettingsScreen(props) {
               'http://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
           }}
         />
-        <Text style={{lineHeight: 16}}>{generalText}</Text>
       </View>
       <List.Section>
         <List.Item
           title="Description"
-          description="WaveAuth is not only an app but a whole authentication process.
-          It allows you to ensure your collectibles are authentic with the NFC and Blockchain technologies."
+          //description="WaveAuth is not only an app but a whole authentication process."
+          description="We allows you to ensure your collectibles are authentic with the NFC and Blockchain technologies."
         />
 
         <List.Item title="Version" description={version} />
 
         <List.Item
-          title="WaveAuth Website"
+          title="WaveAuth website"
           description="https://waveauth.app/"
           onPress={() => {
             Linking.openURL('https://waveauth.app/');
           }}
         />
         <List.Item
-          title="Contact US"
+          title="Contact us"
           description="contact@waveauth.app"
           onPress={() => {
-            Linking.openURL('contact@waveauth.app');
+            Linking.openURL('https://waveauth.app/contact');
           }}
         />
       </List.Section>
