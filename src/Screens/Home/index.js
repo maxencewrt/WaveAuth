@@ -193,7 +193,6 @@ function HomeScreen(props) {
           )}
           horizontal
           pagingEnabled
-          showsHorizontalScrollIndicator={false}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
             return (

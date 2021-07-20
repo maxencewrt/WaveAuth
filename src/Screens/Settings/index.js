@@ -114,7 +114,7 @@ function SettingsScreen(props) {
           title="Contact us"
           description="contact@waveauth.app"
           onPress={() => {
-            Linking.openURL('https://waveauth.app/#contact');
+            Linking.openURL('https://waveauth.app/contact');
           }}
         />
       </List.Section>
