@@ -19,7 +19,7 @@ import database from '@react-native-firebase/database';
 const {width, height} = Dimensions.get('screen');
 
 const data = [
-  'http://waveauth.app/wp-content/uploads/2020/12/home12_upload.png',
+  'https://cdn.dribbble.com/users/3281732/screenshots/11205211/media/44c854b0a6e381340fbefe276e03e8e4.jpg?compress=1&resize=1200x1200',
   'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
   'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
 ];

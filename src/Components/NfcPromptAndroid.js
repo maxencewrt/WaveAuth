@@ -65,9 +65,9 @@ function NfcPromptAndroid(props) {
             <Image
               source={{
                 uri:
-                  'https://image.flaticon.com/icons/png/512/2546/2546382.png',
+                  'https://waveauth.app/wp-content/uploads/2021/07/animated-nfc.gif',
               }}
-              style={{width: 100, height: 150, padding: 20}}
+              style={{width: '100%', height: 150, padding: 20}}
               resizeMode="contain"
             />
 
