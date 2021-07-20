@@ -6,7 +6,6 @@ import LandingScreen from './Screens/Landing';
 import HomeScreen from './Screens/Home';
 import TagDetailScreen from './Screens/TagDetail/index';
 import AuthFailed from './Screens/AuthFailed';
-import CustomTransceiveScreen from './Screens/CustomTransceive';
 import SettingsScreen from './Screens/Settings';
 import NfcPromptAndroid from './Components/NfcPromptAndroid';
 
@@ -41,11 +40,6 @@ function Main(props) {
         name="Home"
         component={HomeScreen}
         options={{title: 'HOME'}}
-      />
-      <MainStack.Screen
-        name="CustomTransceive"
-        component={CustomTransceiveScreen}
-        options={{title: 'CUSTOM TRANSCEIVE'}}
       />
       <MainStack.Screen
         name="TagDetail"

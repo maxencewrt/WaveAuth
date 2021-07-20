@@ -46,7 +46,7 @@ class AuthFailed extends Component {
             style={{marginTop: 8}}
             title="Contact us"
             onPress={() => {
-              Linking.openURL('https://waveauth.com');
+              Linking.openURL('https://waveauth.app/#contact');
             }}></Button>
         </View>
       </ScrollView>

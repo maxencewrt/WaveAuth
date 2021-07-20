@@ -6,6 +6,8 @@ import database, {firebase} from '@react-native-firebase/database';
 class TagDetailScreen extends Component {
   state = {
     artwork: {
+      Title: '',
+      Artist: '',
       //All product informations
       PictureLink1: '',
       PictureLink2: '',
@@ -13,7 +15,6 @@ class TagDetailScreen extends Component {
       Producer: '',
       ReleaseDate: '',
       SerialNumber: '',
-      Title: '',
       Type: '',
       Weight: '',
       Edition: '',
@@ -42,6 +43,7 @@ class TagDetailScreen extends Component {
         NFCchipID: tag.id,
         artwork: {
           Title: snapshot.val().Title,
+          Artist: snapshot.val().Artist,
           PictureLink1: snapshot.val().PictureLink1,
           PictureLink2: snapshot.val().PictureLink2,
           Publisher: snapshot.val().Publisher,
@@ -68,7 +70,6 @@ class TagDetailScreen extends Component {
   }
 
   render() {
-    console.log('test undefined', this.state.OwnerID);
     return (
       <ScrollView style={[styles.wrapper, {padding: 10}]}>
         <View style={styles.section}>
@@ -85,6 +86,16 @@ class TagDetailScreen extends Component {
                 : null
             }
           />
+          <Text
+            style={{
+              fontSize: 15,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              padding: 8,
+              marginTop: 8,
+            }}>
+            {this.state.artwork.Title} by {this.state.artwork.Artist}
+          </Text>
         </View>
         {/* <View style={styles.sectionTempo}>
           <Text>NFC chip ID : {this.state.NFCchipID}</Text>
@@ -92,22 +103,23 @@ class TagDetailScreen extends Component {
         <View style={styles.section}>
           <Text style={styles.sectionLabel}>General Information</Text>
           <Text> Title : {this.state.artwork.Title} </Text>
-          <Text> Publisher : {this.state.artwork.Publisher} </Text>
-          <Text> Producer : {this.state.artwork.Producer} </Text>
-          <Text> ReleaseDate : {this.state.artwork.ReleaseDate} </Text>
+          <Text> Artist : {this.state.artwork.Artist} </Text>
+          {/* <Text> Publisher : {this.state.artwork.Publisher} </Text>
+          <Text> Producer : {this.state.artwork.Producer} </Text> */}
+          <Text> Date : {this.state.artwork.ReleaseDate} </Text>
           <Text> Type : {this.state.artwork.Type} </Text>
-          <Text> Weight : {this.state.artwork.Weight} </Text>
+          {/* <Text> Weight : {this.state.artwork.Weight} </Text> */}
           <Text> Measurements : {this.state.artwork.Measurements} </Text>
-          <Text> Edition : {this.state.artwork.Edition} </Text>
+          {/* <Text> Edition : {this.state.artwork.Edition} </Text>
           <Text> EditionSize : {this.state.artwork.EditionSize} </Text>
-          <Text> Materials : {this.state.artwork.Materials} </Text>
-          <Text> SerialNumber : {this.state.artwork.SerialNumber} </Text>
+          <Text> Materials : {this.state.artwork.Materials} </Text> */}
+          <Text> Serial Number : {this.state.artwork.SerialNumber} </Text>
         </View>
-        <View style={styles.section}>
+        {/* <View style={styles.section}>
           <Text style={styles.sectionLabel}>Blockchain Information</Text>
           <Text> NFT : {this.state.artwork.NFT} </Text>
           <Text> NFTProvider : {this.state.artwork.NFTProvider} </Text>
-        </View>
+        </View> */}
       </ScrollView>
     );
   }
@@ -125,12 +137,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 8,
     backgroundColor: 'white',
-    marginBottom: 15,
-  },
-  sectionTempo: {
-    padding: 8,
-    borderRadius: 8,
-    backgroundColor: 'orange',
     marginBottom: 15,
   },
   sectionLabel: {

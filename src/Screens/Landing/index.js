@@ -33,8 +33,6 @@ function LandingScreen(props) {
 
       await delay(500);
 
-      await AppContext.Actions.initStorage();
-
       props.navigation.reset({
         index: 0,
         routes: [{name: 'Main'}],
@@ -49,7 +47,7 @@ function LandingScreen(props) {
       <Animated.Image
         source={{
           uri:
-            'http://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
+            'https://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
         }}
         resizeMode="contain"
         style={[
@@ -58,7 +56,7 @@ function LandingScreen(props) {
         ]}
       />
 
-      <ActivityIndicator size="large" style={{marginTop: 50}} />
+      {/* <ActivityIndicator size="large" style={{marginTop: 50}} /> */}
     </View>
   );
 }
