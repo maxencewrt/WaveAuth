@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, ActivityIndicator, Animated} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ActivityIndicator,
+  Animated,
+  StatusBar,
+} from 'react-native';
 import * as AppContext from '../../AppContext';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -44,6 +50,7 @@ function LandingScreen(props) {
 
   return (
     <View style={styles.container}>
+      <StatusBar translucent backgroundColor="transparent" />
       <Animated.Image
         source={{
           uri:
@@ -55,8 +62,6 @@ function LandingScreen(props) {
           {opacity: opacityAnimValue, transform: [{scale: scaleAnimValue}]},
         ]}
       />
-
-      {/* <ActivityIndicator size="large" style={{marginTop: 50}} /> */}
     </View>
   );
 }

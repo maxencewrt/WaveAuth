@@ -28,6 +28,14 @@
 
 ## Problème connu + résolution
 
+- error Failed to install the app. Make sure you have the Android development environment set up: https://reactnative.dev/docs/environment-setup. Run
+  CLI with --verbose flag for more details.
+
+  _Résolution_ :
+
+  - Vérifier que le device est reconnu : adb devices
+  - Vérifier l'espace de stockage restant
+
 - En cas de probème sur des componnents :
   Décommenter :
   CheckboxItem dans \src\components\Checkbox\Checkbox.tsx

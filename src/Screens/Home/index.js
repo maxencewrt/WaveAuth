@@ -19,9 +19,11 @@ import database from '@react-native-firebase/database';
 const {width, height} = Dimensions.get('screen');
 
 const data = [
-  'http://waveauth.app/wp-content/uploads/2020/12/home12_upload.png',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
+  'http://waveauth.app/wp-content/uploads/2021/07/2.jpg',
+  'http://waveauth.app/wp-content/uploads/2021/07/1.jpg',
+  'http://waveauth.app/wp-content/uploads/2021/07/3.jpg',
+  //'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
+  //'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
 ];
 
 const imageW = width * 0.75;
@@ -156,7 +158,8 @@ function HomeScreen(props) {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      {/* <StatusBar translucent backgroundColor="transparent" /> */}
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <SafeAreaView />
       <View style={{flex: 1, padding}}>
         <View style={StyleSheet.absoluteFillObject}>
@@ -192,6 +195,7 @@ function HomeScreen(props) {
             {useNativeDriver: true},
           )}
           horizontal
+          showsHorizontalScrollIndicator={false}
           pagingEnabled
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
