@@ -745,7 +745,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.revteltech.nfcopenrewriter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.waveauth;
 				PRODUCT_NAME = NfcOpenReader;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;

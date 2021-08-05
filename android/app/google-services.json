@@ -1,34 +1,57 @@
 {
   "project_info": {
+<<<<<<< Updated upstream
     "project_number": "784655101307",
     "firebase_url": "https://fir-testv1-cbadf-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "fir-testv1-cbadf",
     "storage_bucket": "fir-testv1-cbadf.appspot.com"
+=======
+    "project_number": "1043041745645",
+    "firebase_url": "https://waveauthapp-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "waveauthapp",
+    "storage_bucket": "waveauthapp.appspot.com"
+>>>>>>> Stashed changes
   },
   "client": [
     {
       "client_info": {
+<<<<<<< Updated upstream
         "mobilesdk_app_id": "1:784655101307:android:af481e9c2c64ac4366e1de",
+=======
+        "mobilesdk_app_id": "1:1043041745645:android:4efe8541441be09f156ae4",
+>>>>>>> Stashed changes
         "android_client_info": {
-          "package_name": "com.revteltech.nfcopenrewriter"
+          "package_name": "com.waveauth"
         }
       },
       "oauth_client": [
         {
+<<<<<<< Updated upstream
           "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+=======
+          "client_id": "1043041745645-lnuj1bb0dc65o9k59e43o9kth4afeuh0.apps.googleusercontent.com",
+>>>>>>> Stashed changes
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< Updated upstream
           "current_key": "AIzaSyDUlQc9Owkz2VFSIDUj7acaKExXNRN7g1g"
+=======
+          "current_key": "AIzaSyAknS2LPtcYvi0Vqj-DGJO5bDKObSVBmY4"
+>>>>>>> Stashed changes
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< Updated upstream
               "client_id": "784655101307-f0sle90gl8ilmcf7svvfp3qjtpisaoto.apps.googleusercontent.com",
+=======
+              "client_id": "1043041745645-lnuj1bb0dc65o9k59e43o9kth4afeuh0.apps.googleusercontent.com",
+>>>>>>> Stashed changes
               "client_type": 3
             }
           ]

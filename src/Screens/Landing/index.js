@@ -46,6 +46,10 @@ function LandingScreen(props) {
 
   return (
     <View style={styles.container}>
+<<<<<<< Updated upstream
+=======
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
+>>>>>>> Stashed changes
       <Animated.Image
         source={require('../../../images/nfc-rewriter-icon.png')}
         resizeMode="contain"
