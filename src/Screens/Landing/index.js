@@ -50,7 +50,7 @@ function LandingScreen(props) {
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor="transparent" />
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Animated.Image
         source={{
           uri:

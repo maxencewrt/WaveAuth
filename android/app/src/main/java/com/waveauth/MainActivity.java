@@ -1,4 +1,4 @@
-package com.revteltech.nfcopenrewriter;
+package com.waveauth;
 
 import com.facebook.react.ReactActivity;
 
