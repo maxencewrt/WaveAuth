@@ -7,7 +7,6 @@ import {
   StatusBar,
   Animated,
   StyleSheet,
-  SafeAreaView,
   Platform,
   Alert,
 } from 'react-native';
@@ -18,23 +17,114 @@ import database from '@react-native-firebase/database';
 
 const {width, height} = Dimensions.get('screen');
 
-const data = [
-  'http://waveauth.app/wp-content/uploads/2021/07/2.jpg',
-  'http://waveauth.app/wp-content/uploads/2021/07/1.jpg',
-  'http://waveauth.app/wp-content/uploads/2021/07/3.jpg',
-  //'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
-  //'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
+const DATA = [
+  {
+    key: '3571572',
+    title: 'Locate the chip',
+    description:
+      'Please find where is the WaveAuth chip located, you can refer to the information provided by the seller',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_3@2x.png',
+  },
+  {
+    key: '3571747',
+    title: 'Scan the chip',
+    description:
+      'Put your phone close to the chip and click on the "Strat Authentication" button. We are using NFC technology.',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/2_2@2x.png',
+  },
+  {
+    key: '3571680',
+    title: 'Vérify authenticity',
+    description:
+      'When a chip is discovered, the app will tell you if the collectible is registered in our Database and linked to a NFT.',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_2@2x.png',
+  },
 ];
 
-const imageW = width * 0.75;
-const imageH = imageW * 1.54;
+const Indicator = ({scrollX}) => {
+  return (
+    <View style={{position: 'absolute', bottom: 100, flexDirection: 'row'}}>
+      {DATA.map((_, i) => {
+        const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
+
+        const scale = scrollX.interpolate({
+          inputRange,
+          outputRange: [0.8, 1.4, 0.8],
+          extrapolate: 'clamp',
+        });
+
+        const opacity = scrollX.interpolate({
+          inputRange,
+          outputRange: [0.6, 0.9, 0.6],
+          extrapolate: 'clamp',
+        });
+
+        return (
+          <Animated.View
+            key={`indicator-${i}`}
+            style={{
+              height: 8,
+              width: 8,
+              marginTop: 15,
+              borderRadius: 5,
+              backgroundColor: 'black',
+              opacity,
+              margin: 8,
+              transform: [
+                {
+                  scale,
+                },
+              ],
+            }}
+          />
+        );
+      })}
+    </View>
+  );
+};
+
+const Square = ({scrollX}) => {
+  const YOLO = Animated.modulo(
+    Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
+    1,
+  );
+
+  const rotate = YOLO.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '0deg', '0deg'],
+  });
+
+  const translateX = YOLO.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [0, -height, 0],
+  });
+
+  return (
+    <Animated.View
+      style={{
+        width: width,
+        height: height,
+        backgroundColor: 'white',
+        borderRadius: 50,
+        position: 'absolute',
+        top: -height * 0.4,
+        transform: [
+          {
+            rotate,
+          },
+          {
+            translateX,
+          },
+        ],
+      }}
+    />
+  );
+};
 
 function HomeScreen(props) {
   const {navigation} = props;
   const [supported, setSupported] = React.useState(null);
   const [enabled, setEnabled] = React.useState(null);
-  const padding = 40;
-  const width = Dimensions.get('window').width - 2 * padding;
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
   React.useEffect(() => {
@@ -53,10 +143,8 @@ function HomeScreen(props) {
     return (
       <View
         style={{
-          flex: 2,
           alignItems: 'stretch',
           alignSelf: 'center',
-          width,
         }}>
         <Button
           mode="contained"
@@ -75,8 +163,7 @@ function HomeScreen(props) {
                   }
                 });
             }
-          }}
-          style={{marginTop: 10, marginBottom: 10}}>
+          }}>
           START AUTHENTICATION
         </Button>
       </View>
@@ -92,7 +179,7 @@ function HomeScreen(props) {
           alignSelf: 'center',
           width,
         }}>
-        <Text style={{textAlign: 'center', marginBottom: 10}}>
+        <Text style={{textAlign: 'center', marginBottom: 10, color: 'white'}}>
           Your NFC is not enabled. Please first enable it and hit 'check again'
           button
         </Text>
@@ -118,118 +205,75 @@ function HomeScreen(props) {
     );
   }
 
-  const Indicator = ({scrollX}) => {
-    return (
-      <View style={{position: 'absolute', flexDirection: 'row'}}>
-        {data.map((_, i) => {
-          const inputRange = [(i - 1) * width, i * width, (i + 1) * width];
-          const scale = scrollX.interpolate({
-            inputRange,
-            outputRange: [0.8, 1.4, 0.8],
-            extrapolate: 'clamp',
-          });
-          const opacity = scrollX.interpolate({
-            inputRange,
-            outputRange: [0.4, 1, 0.4],
-            extrapolate: 'clamp',
-          });
-          return (
-            <Animated.View
-              key={`indicator-${i}`}
-              style={{
-                height: 10,
-                width: 10,
-                borderRadius: 5,
-                backgroundColor: '#fff',
-                opacity,
-                margin: 10,
-                transform: [
-                  {
-                    scale,
-                  },
-                ],
-              }}
-            />
-          );
-        })}
-      </View>
-    );
-  };
-
   return (
     <>
-      {/* <StatusBar translucent backgroundColor="transparent" /> */}
-      <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <SafeAreaView />
-      <View style={{flex: 1, padding}}>
-        <View style={StyleSheet.absoluteFillObject}>
-          {data.map((image, index) => {
-            const inputRange = [
-              (index - 1) * width,
-              index * width,
-              (index + 1) * width,
-            ];
-            const opacity = scrollX.interpolate({
-              inputRange,
-              outputRange: [0, 1, 0],
-            });
-            return (
-              <Animated.Image
-                key={`image-${index}`}
-                source={{uri: image}}
-                style={[
-                  StyleSheet.absoluteFillObject,
-                  {
-                    opacity,
-                  },
-                ]}
-                blurRadius={10}
-              />
-            );
-          })}
-        </View>
+      <View style={styles.container}>
+        <StatusBar backgroundColor="white" barStyle="dark-content" />
+        <Square scrollX={scrollX} />
         <Animated.FlatList
-          data={data}
+          data={DATA}
+          keyExtractor={(item) => item.key}
+          horizontal
+          scrollEventThrottle={32}
+          pagingEnabled
           onScroll={Animated.event(
             [{nativeEvent: {contentOffset: {x: scrollX}}}],
-            {useNativeDriver: true},
+            {useNativeDriver: false},
           )}
-          horizontal
           showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={{paddingBottom: 10}}
           renderItem={({item}) => {
             return (
-              <View
-                style={{width, justifyContent: 'center', alignItems: 'center'}}>
-                <Image
-                  source={{uri: item}}
-                  style={{
-                    width: imageW,
-                    height: imageH,
-                    resizeMode: 'cover',
-                    borderRadius: 16,
-                  }}
-                />
+              <View style={{width, alignItems: 'center', padding: 20}}>
+                <View style={{flex: 0.85, justifyContent: 'center'}}>
+                  <Image
+                    source={{uri: item.image}}
+                    style={{
+                      width: width / 1.2,
+                      height: width / 1.2,
+                      resizeMode: 'contain',
+                    }}
+                  />
+                </View>
+                <View style={{flex: 0.2}}>
+                  <Text
+                    style={{
+                      fontWeight: 'bold',
+                      fontSize: 28,
+                      marginBottom: 10,
+                      color: 'black',
+                      textAlign: 'center',
+                    }}>
+                    {item.title}
+                  </Text>
+                  <Text
+                    style={{
+                      color: 'grey',
+                      textAlign: 'center',
+                    }}>
+                    {item.description}
+                  </Text>
+                </View>
               </View>
             );
           }}
         />
-        <View style={{padding, justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{alignItems: 'center', flex: 0.15}}>
           <Indicator scrollX={scrollX} />
+
+          {supported && enabled && renderNfcButtons()}
+
+          {supported && !enabled && renderNfcNotEnabled()}
         </View>
-
-        {supported && !enabled && renderNfcNotEnabled()}
-
-        {supported && enabled && renderNfcButtons()}
-        <IconButton
-          icon={() => <Icon name="info-outline" size={25} />}
-          style={styles.settingIcon}
-          onPress={() => {
-            navigation.navigate('Settings');
-          }}
-        />
       </View>
+
+      <IconButton
+        icon={() => <Icon name="info-outline" size={25} />}
+        style={styles.settingIcon}
+        onPress={() => {
+          navigation.navigate('Settings');
+        }}
+      />
     </>
   );
 }
@@ -239,6 +283,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: Platform.OS === 'android' ? 0 : 0,
     right: 0,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#f9f4f8',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

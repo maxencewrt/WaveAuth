@@ -26,8 +26,7 @@ class AuthFailed extends Component {
               justifyContent: 'center',
             }}
             source={{
-              uri:
-                'http://waveauth.app/wp-content/uploads/2021/07/warning_Colors.png',
+              uri: 'http://waveauth.app/wp-content/uploads/2021/08/4_2@2x.png',
             }}
           />
         </View>

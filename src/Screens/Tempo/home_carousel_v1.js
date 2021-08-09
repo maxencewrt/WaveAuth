@@ -12,6 +12,7 @@ import {
   Alert,
 } from 'react-native';
 import NfcProxy from '../../NfcProxy';
+import OfflineNotice from '../../Components/OfflineNotice';
 import {Button, IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import database from '@react-native-firebase/database';
@@ -19,9 +20,11 @@ import database from '@react-native-firebase/database';
 const {width, height} = Dimensions.get('screen');
 
 const data = [
-  'https://cdn.dribbble.com/users/3281732/screenshots/11205211/media/44c854b0a6e381340fbefe276e03e8e4.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
-  'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
+  'http://waveauth.app/wp-content/uploads/2021/08/3_3@2x.png',
+  'http://waveauth.app/wp-content/uploads/2021/08/2_2@2x.png',
+  'http://waveauth.app/wp-content/uploads/2021/08/3_2@2x.png',
+  //'https://cdn.dribbble.com/users/3281732/screenshots/13130602/media/592ccac0a949b39f058a297fd1faa38e.jpg?compress=1&resize=1200x1200',
+  //'https://cdn.dribbble.com/users/3281732/screenshots/13661330/media/1d9d3cd01504fa3f5ae5016e5ec3a313.jpg?compress=1&resize=1200x1200',
 ];
 
 const imageW = width * 0.75;
@@ -156,7 +159,8 @@ function HomeScreen(props) {
 
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      {/* <StatusBar translucent backgroundColor="transparent" /> */}
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <SafeAreaView />
       <View style={{flex: 1, padding}}>
         <View style={StyleSheet.absoluteFillObject}>
@@ -192,6 +196,7 @@ function HomeScreen(props) {
             {useNativeDriver: true},
           )}
           horizontal
+          showsHorizontalScrollIndicator={false}
           pagingEnabled
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item}) => {
@@ -225,6 +230,7 @@ function HomeScreen(props) {
             navigation.navigate('Settings');
           }}
         />
+        {/* <OfflineNotice /> */}
       </View>
     </>
   );
