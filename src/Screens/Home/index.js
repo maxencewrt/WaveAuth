@@ -23,21 +23,21 @@ const DATA = [
     title: 'Locate the chip',
     description:
       'Please find where is the WaveAuth chip located, you can refer to the information provided by the seller',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/2_2@2x-1.png',
+    image: 'https://waveauth.app/wp-content/uploads/2021/08/Locate.png',
   },
   {
     key: '3571747',
     title: 'Scan the chip',
     description:
       'Put your phone close to the chip and click on the "Strat Authentication" button. We are using NFC technology.',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_2@2x-1.png',
+    image: 'https://waveauth.app/wp-content/uploads/2021/08/Scan.png',
   },
   {
     key: '3571680',
     title: 'Vérify authenticity',
     description:
       'When a chip is discovered, the app will tell you if the collectible is registered in our Database and linked to a NFT.',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/4@2x.png',
+    image: 'https://waveauth.app/wp-content/uploads/2021/08/Verify.png',
   },
 ];
 
@@ -65,7 +65,6 @@ const Indicator = ({scrollX}) => {
             style={{
               height: 8,
               width: 8,
-              marginTop: 15,
               borderRadius: 5,
               backgroundColor: 'black',
               opacity,
@@ -84,23 +83,8 @@ const Indicator = ({scrollX}) => {
 };
 
 const Square = ({scrollX}) => {
-  const YOLO = Animated.modulo(
-    Animated.divide(Animated.modulo(scrollX, width), new Animated.Value(width)),
-    1,
-  );
-
-  const rotate = YOLO.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ['0deg', '0deg', '0deg'],
-  });
-
-  const translateX = YOLO.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [0, -height, 0],
-  });
-
   return (
-    <Animated.View
+    <View
       style={{
         width: width,
         height: height,
@@ -108,14 +92,6 @@ const Square = ({scrollX}) => {
         borderRadius: 50,
         position: 'absolute',
         top: -height * 0.4,
-        // transform: [
-        //   {
-        //     rotate,
-        //   },
-        //   {
-        //     translateX,
-        //   },
-        // ],
       }}
     />
   );
@@ -212,7 +188,6 @@ function HomeScreen(props) {
         <Square scrollX={scrollX} />
         <Animated.FlatList
           data={DATA}
-          keyExtractor={(item) => item.key}
           horizontal
           scrollEventThrottle={32}
           pagingEnabled
@@ -224,7 +199,7 @@ function HomeScreen(props) {
           contentContainerStyle={{paddingBottom: 10}}
           renderItem={({item}) => {
             return (
-              <View style={{width, alignItems: 'center', padding: 20}}>
+              <View style={{width, alignItems: 'center'}}>
                 <View style={{flex: 0.85, justifyContent: 'center'}}>
                   <Image
                     source={{uri: item.image}}
@@ -260,9 +235,7 @@ function HomeScreen(props) {
         />
         <View style={{alignItems: 'center', flex: 0.15}}>
           <Indicator scrollX={scrollX} />
-
           {supported && enabled && renderNfcButtons()}
-
           {supported && !enabled && renderNfcNotEnabled()}
         </View>
       </View>
@@ -281,7 +254,7 @@ function HomeScreen(props) {
 const styles = StyleSheet.create({
   settingIcon: {
     position: 'absolute',
-    top: Platform.OS === 'android' ? 0 : 0,
+    //top: Platform.OS === 'android' ? 0 : 0,
     right: 0,
   },
   container: {
