@@ -88,7 +88,10 @@ function SettingsScreen(props) {
             borderRadius: 16,
             justifyContent: 'center',
           }}
-          source={require('../../../images/WaveAuthLogo.png')}
+          source={{
+            uri:
+              'http://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
+          }}
         />
       </View>
       <List.Section>

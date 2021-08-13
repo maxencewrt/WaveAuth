@@ -52,7 +52,10 @@ function LandingScreen(props) {
     <View style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Animated.Image
-        source={require('../../../images/WaveAuthLogo.png')}
+        source={{
+          uri:
+            'https://waveauth.app/wp-content/uploads/2021/07/WaveAuthLogoBackTransparent.png',
+        }}
         resizeMode="contain"
         style={[
           styles.image,
