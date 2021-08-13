@@ -23,21 +23,21 @@ const DATA = [
     title: 'Locate the chip',
     description:
       'Please find where is the WaveAuth chip located, you can refer to the information provided by the seller',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_3@2x.png',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/2_2@2x-1.png',
   },
   {
     key: '3571747',
     title: 'Scan the chip',
     description:
       'Put your phone close to the chip and click on the "Strat Authentication" button. We are using NFC technology.',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/2_2@2x.png',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_2@2x-1.png',
   },
   {
     key: '3571680',
     title: 'Vérify authenticity',
     description:
       'When a chip is discovered, the app will tell you if the collectible is registered in our Database and linked to a NFT.',
-    image: 'http://waveauth.app/wp-content/uploads/2021/08/3_2@2x.png',
+    image: 'http://waveauth.app/wp-content/uploads/2021/08/4@2x.png',
   },
 ];
 
@@ -108,14 +108,14 @@ const Square = ({scrollX}) => {
         borderRadius: 50,
         position: 'absolute',
         top: -height * 0.4,
-        transform: [
-          {
-            rotate,
-          },
-          {
-            translateX,
-          },
-        ],
+        // transform: [
+        //   {
+        //     rotate,
+        //   },
+        //   {
+        //     translateX,
+        //   },
+        // ],
       }}
     />
   );
